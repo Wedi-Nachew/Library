@@ -53,6 +53,7 @@ form{
     background-color: rgba(0, 0, 0, .5);
     padding: 30px;
     color: white;
+    margin-top: 5%;
 }
 form > p{
     text-align: center;
