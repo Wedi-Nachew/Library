@@ -35,16 +35,28 @@ input.forEach(input=>input.addEventListener("input", (event)=>{
    }
 }))
 
-
+function addBookToLibrary(){
+    let newBook = new Book(bookInfo.title, bookInfo.author, bookInfo.pages, bookInfo.read)
+    myLibrary.push(newBook)
+    console.table(myLibrary)
+}
+addBtn.addEventListener("click", (event)=>{
+    if(Boolean(bookInfo.title) && Boolean(bookInfo.author) && Boolean(bookInfo.pages)){
+        addBookToLibrary();
+        formContainer.className = "hide";
+        event.preventDefault()
+    } else{
+        return false
+    }
+})
 
 
 // Pop up if "Add Book" is clicked
 // Disappear if clicked outside of the form or the Add button
 document.addEventListener("click", (event)=>{
-    if((event.target === addBtn) || 
-        (!form.contains(event.target) && event.target !== addBook)){
+    if(!form.contains(event.target) && event.target !== addBook){
         formContainer.className = "hide"
-    }else if(event.target === addBook){
+    }else if(event.target === addBook ){
         formContainer.className= "show"
     } 
 })
