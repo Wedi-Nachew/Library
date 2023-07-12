@@ -7,4 +7,7 @@ addBook.addEventListener("click", ()=>{
 addBtn.addEventListener("click", ()=>{
     formContainer.className = "hide"
 })
+document.addEventListener("DOMContentLoaded", ()=>{
+    formContainer.className = "hide"
+})
 
