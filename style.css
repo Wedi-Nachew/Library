@@ -41,4 +41,17 @@ label{
     margin: 0;
     font-family: inherit;
     font-size: 100%;
+    border: none;
 }
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    border-radius: 10px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, .5);
+    padding: 30px;
+    color: white;
+}
+
