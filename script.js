@@ -7,7 +7,7 @@ const input = document.querySelectorAll("input")
 const checkBox = document.querySelector("input[type=checkbox]")
 const container = document.querySelector(".container")
 const display = document.querySelector("tbody")
-const bookStatus = document.querySelectorAll("tbody button")
+const bookStatus = document.querySelectorAll(".book-satus")
 
 
 bookStatus.forEach(btn=>btn.addEventListener("click", (event)=>{
@@ -85,12 +85,19 @@ function renderBooks(){
         let datas = Object.values(book);
         for(data of datas){
             const td = document.createElement("td")
-            td.textContent = data
+            if(datas.indexOf(data) == 3){
+                const btn = document.createElement("button")
+                btn.textContent = data
+                td.appendChild(btn)
+            } else {
+                td.textContent = data
+            }
             tr.appendChild(td)
         }
         display.appendChild(tr)
    }
 }
+renderBooks()
 
 
 // Pop up if "Add Book" is clicked
