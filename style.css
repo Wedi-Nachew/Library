@@ -97,6 +97,17 @@ input[type="checkbox"]{
     box-shadow: 0 0 5px gray;
 }
 
+input[type="checkbox"]:checked + label::before{
+    content: "✔️";
+    position: absolute;
+    left: 1.5px;
+    z-index: 2;
+}
+input[type="checkbox"] ~ label{
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
 
 
 
