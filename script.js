@@ -4,8 +4,13 @@ const addBtn = document.querySelector("form button")
 const formContainer = document.querySelector("#form")
 const form = document.querySelector("form")
 const input = document.querySelectorAll("input")
+const checkBox = document.querySelector("input[type=checkbox]")
 
-const myLibrary=[]
+let readStatus = "To Read"
+const myLibrary=[
+                    {title: "Sapiens", author: "prof. Yuval Harari", pages: 123, read: "Have Read"},
+                    {title: "Eloquent Javascript", author: "Majin Haverbeke", pages: 448, read: "To read"}
+                ]
 const bookInfo ={}
 
 
@@ -19,32 +24,37 @@ function Book(title, author, pages, read){
     }
 }
 
+function checkBoxValue(){
+    (checkBox.checked) ? readStatus = "Have Read" : readStatus = "To Read";
+}
+
 input.forEach(input=>input.addEventListener("input", (event)=>{
    switch(event.target.name){
     case "title":
-        bookInfo.title = event.target.value;
+        bookInfo["title"] = event.target.value;
         break;
     case "author":
-        bookInfo.author = event.target.value;
+        bookInfo["author"] = event.target.value;
         break;
     case "pages":
-        bookInfo.pages = event.target.value;
+        bookInfo["pages"] = event.target.value;
         break;
     case "read":
-        bookInfo.read = event.target.value;
+        checkBoxValue()
+        bookInfo["read"] = readStatus;
    }
 }))
 
 function addBookToLibrary(){
     let newBook = new Book(bookInfo.title, bookInfo.author, bookInfo.pages, bookInfo.read)
     myLibrary.push(newBook)
-    console.table(myLibrary)
 }
 addBtn.addEventListener("click", (event)=>{
     if(Boolean(bookInfo.title) && Boolean(bookInfo.author) && Boolean(bookInfo.pages)){
+        event.preventDefault()
         addBookToLibrary();
         formContainer.className = "hide";
-        event.preventDefault()
+        console.table(bookInfo)
     } else{
         return false
     }
@@ -61,9 +71,10 @@ document.addEventListener("click", (event)=>{
     } 
 })
 
-// Set the default class of the formContainer
+// Set the default settings of the Library
 document.addEventListener("DOMContentLoaded", ()=>{
     formContainer.className = "hide"
+    bookInfo["read"] = readStatus;
 })
 
 
