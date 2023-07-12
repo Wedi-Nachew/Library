@@ -88,6 +88,14 @@ form div{
     display: flex;
     column-gap: 8px;
 }
+input[type="checkbox"]{
+    margin-bottom: 10px;
+    appearance: none;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 0 5px gray;
+}
 
 
 
