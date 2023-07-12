@@ -83,7 +83,11 @@ form button{
     color: #fff;
     font-weight: 600;
 }
-
+form div{
+    position: relative;
+    display: flex;
+    column-gap: 8px;
+}
 
 
 
