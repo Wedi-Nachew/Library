@@ -126,7 +126,35 @@ input[type="checkbox"] ~ label{
     font-size: 1.1rem;
     font-weight: 400;
 }
+.container{
+    display: flex;
+    padding: 30px;
+    gap: 20px;
+}
 
+table{
+    width: 80%;
+    margin: 30px auto;
+}
+thead{
+    height: 50px;
+    background-color: #27272b;
+    color: white;
+}
+tr{
+    height: 40px;
+}
+td{
+    text-align: center
+}
+table button{
+    padding: 10px 20%;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 4px #9f9f9f;
+    background-color: rgb(184, 55, 29);
+    color: white;
+}
 
 
 

@@ -5,6 +5,24 @@ const formContainer = document.querySelector("#form")
 const form = document.querySelector("form")
 const input = document.querySelectorAll("input")
 const checkBox = document.querySelector("input[type=checkbox]")
+const container = document.querySelector(".container")
+const statuss = document.querySelector("tbody")
+const bookStatus = document.querySelectorAll("tbody button")
+
+
+bookStatus.forEach(btn=>btn.addEventListener("click", (event)=>{
+    console.log(event.target.textContent==="To Read")
+    if(event.target.textContent==="To Read"){
+        btn.style.cssText = "background-color: green;";
+        btn.textContent = "Have Read"
+    } else if(event.target.textContent==="Have Read"){
+        btn.style.cssText = "background-color:  rgb(184, 55, 29);";
+        btn.textContent = "To Read"
+    }
+}))
+
+
+
 
 let readStatus = "To Read"
 const myLibrary=[
@@ -59,6 +77,16 @@ addBtn.addEventListener("click", (event)=>{
         return false
     }
 })
+
+function renderBooks(){
+    for (const book of myLibrary){
+        for(const detail in book){
+            let tr = document.createElement("tr")
+            tr.textContent += book[detail]
+            statuss.appendChild(tr)
+        }
+   }
+}
 
 
 // Pop up if "Add Book" is clicked
