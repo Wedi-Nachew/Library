@@ -54,4 +54,8 @@ form{
     padding: 30px;
     color: white;
 }
-
+form > p{
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
