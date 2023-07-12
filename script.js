@@ -6,7 +6,7 @@ const form = document.querySelector("form")
 const input = document.querySelectorAll("input")
 const checkBox = document.querySelector("input[type=checkbox]")
 const container = document.querySelector(".container")
-const statuss = document.querySelector("tbody")
+const display = document.querySelector("tbody")
 const bookStatus = document.querySelectorAll("tbody button")
 
 
@@ -72,7 +72,8 @@ addBtn.addEventListener("click", (event)=>{
         event.preventDefault()
         addBookToLibrary();
         formContainer.className = "hide";
-        console.table(bookInfo)
+        renderBooks()
+        // console.table(bookInfo)
     } else{
         return false
     }
@@ -80,11 +81,14 @@ addBtn.addEventListener("click", (event)=>{
 
 function renderBooks(){
     for (const book of myLibrary){
-        for(const detail in book){
-            let tr = document.createElement("tr")
-            tr.textContent += book[detail]
-            statuss.appendChild(tr)
+        let tr = document.createElement("tr")
+        let datas = Object.values(book);
+        for(data of datas){
+            const td = document.createElement("td")
+            td.textContent = data
+            tr.appendChild(td)
         }
+        display.appendChild(tr)
    }
 }
 
