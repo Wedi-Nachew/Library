@@ -7,19 +7,8 @@ const input = document.querySelectorAll("input")
 const checkBox = document.querySelector("input[type=checkbox]")
 const container = document.querySelector(".container")
 const display = document.querySelector("tbody")
-const bookStatus = document.querySelectorAll(".book-satus")
 
 
-bookStatus.forEach(btn=>btn.addEventListener("click", (event)=>{
-    console.log(event.target.textContent==="To Read")
-    if(event.target.textContent==="To Read"){
-        btn.style.cssText = "background-color: green;";
-        btn.textContent = "Have Read"
-    } else if(event.target.textContent==="Have Read"){
-        btn.style.cssText = "background-color:  rgb(184, 55, 29);";
-        btn.textContent = "To Read"
-    }
-}))
 
 
 
@@ -27,7 +16,7 @@ bookStatus.forEach(btn=>btn.addEventListener("click", (event)=>{
 let readStatus = "To Read"
 const myLibrary=[
                     {title: "Sapiens", author: "prof. Yuval Harari", pages: 123, read: "Have Read"},
-                    {title: "Eloquent Javascript", author: "Majin Haverbeke", pages: 448, read: "To read"}
+                    {title: "Eloquent Javascript", author: "Majin Haverbeke", pages: 448, read: "To Read"}
                 ]
 const bookInfo ={}
 
@@ -88,6 +77,7 @@ function renderBooks(){
             if(datas.indexOf(data) == 3){
                 const btn = document.createElement("button")
                 btn.textContent = data
+                // btn.classList.add("book-status")
                 td.appendChild(btn)
             } else {
                 td.textContent = data
@@ -98,8 +88,19 @@ function renderBooks(){
    }
 }
 renderBooks()
-
-
+document.addEventListener("focus", (event)=>{
+    const bookStatus = document.querySelectorAll("td button")
+    bookStatus.forEach(btn => btn.addEventListener("click", (event)=>{
+        if(event.target.textContent==="To Read"){
+            btn.style.cssText = "background-color: green;"
+            btn.textContent = "Have Read"
+        }else if(event.target.textContent==="Have Read"){
+            btn.style.cssText = "background-color:  rgb(184, 55, 29);"
+            btn.textContent = "To Read"
+        }
+    }))
+    
+})
 // Pop up if "Add Book" is clicked
 // Disappear if clicked outside of the form or the Add button
 document.addEventListener("click", (event)=>{
