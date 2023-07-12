@@ -67,4 +67,8 @@ input:not(input[type="checkbox"]){
     outline: none;
     padding: 3px 8px;
 }
-
+label{
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 3px;
+}
