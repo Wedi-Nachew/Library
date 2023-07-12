@@ -72,3 +72,20 @@ label{
     font-weight: 400;
     margin-bottom: 3px;
 }
+
+form button{
+    height: 40px;
+    background-color: #1982c4;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #264653;
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+
+
+
+
+
