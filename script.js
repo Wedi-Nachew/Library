@@ -4,6 +4,9 @@ const addBtn = document.querySelector("form button")
 const formContainer = document.querySelector("#form")
 const form = document.querySelector("form")
 
+const myLibrary=[]
+const bookInfo ={}
+
 // Pop up if "Add Book" is clicked
 // Disappear if clicked outside of the form or the Add button
 document.addEventListener("click", (event)=>{
