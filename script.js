@@ -27,9 +27,6 @@ function Book(title, author, pages, read){
     this.author = author
     this.pages = pages
     this.read = read
-    // this.info = function() {
-    //     return `The ${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`
-    // }
 }
 
 Book.prototype.info = function() {
@@ -59,6 +56,9 @@ input.forEach(input=>input.addEventListener("input", (event)=>{
 
 function addBookToLibrary(){
     let newBook = new Book(bookInfo.title, bookInfo.author, bookInfo.pages, bookInfo.read)
+    if(bookInfo.textContent === "To Read"){
+
+    }
     myLibrary.push(newBook)
 }
 addBtn.addEventListener("click", (event)=>{
@@ -67,6 +67,7 @@ addBtn.addEventListener("click", (event)=>{
         addBookToLibrary();
         formContainer.className = "hide";
         renderBooks()
+        setBookStatus()
     } else{
         return false
     }
@@ -78,11 +79,18 @@ function renderBooks(){
         let datas = Object.values(book);
         for(data of datas){
             const td = document.createElement("td")
-            if(datas.indexOf(data) == 3){
+            if(datas.indexOf(data) == 3 && data=="To Read"){
                 const btn = document.createElement("button")
+                btn.className = "not-readed"
                 btn.textContent = data
                 td.appendChild(btn)
-            } else {
+            } else if(datas.indexOf(data) == 3 && data=="Have Read"){
+                const btn = document.createElement("button")
+                btn.className = "readed"
+                btn.textContent = data
+                td.appendChild(btn)
+            } 
+            else {
                 td.textContent = data
             }
             tr.appendChild(td)
@@ -91,7 +99,6 @@ function renderBooks(){
    }
 }
 renderBooks()
-
 display.addEventListener("click", (event)=>{
     if(event.target.nodeName === "BUTTON" && event.target.textContent === "To Read"){
         event.target.className = "readed"
@@ -102,18 +109,6 @@ display.addEventListener("click", (event)=>{
     }
 })
 
-function setBookStatus(){
-    if(readStatus==="To Read"){
-        console.log("red")
-        //bookBtn.className="not-readed"
-    } else if(readStatus==="Have Read"){
-        //bookBtn.className="readed"
-        console.log("green")
-    }
-}
-// setButtonClass()
-// Pop up if "Add Book" is clicked
-// Disappear if clicked outside of the form or the Add button
 document.addEventListener("click", (event)=>{
     if(!form.contains(event.target) && event.target !== addBook){
         formContainer.className = "hide"
@@ -122,11 +117,10 @@ document.addEventListener("click", (event)=>{
     } 
 })
 
-// Set the default settings of the Library
+
 document.addEventListener("DOMContentLoaded", ()=>{
     formContainer.className = "hide";
     bookInfo["read"] = readStatus;
-    setBookStatus()
 })
 
 
