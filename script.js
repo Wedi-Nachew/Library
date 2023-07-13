@@ -119,7 +119,6 @@ display.addEventListener("click", (event)=>{
                 myLibrary.splice(book["dataset"], 1)
             }
         }
-        console.log(myLibrary)
     }
 })
 

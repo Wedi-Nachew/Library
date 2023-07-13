@@ -62,7 +62,7 @@ label{
 
 form{
     position: relative;
-    top: 10%;
+    top: 5%;
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -78,7 +78,7 @@ form{
 }
 form > p{
     text-align: center;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
@@ -90,7 +90,7 @@ input:not(input[type="checkbox"]){
     padding: 3px 8px;
 }
 label{
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 400;
     margin-bottom: 3px;
     margin-left: 8px;
@@ -98,9 +98,9 @@ label{
 
 form button{
     height: 40px;
-    background-color: #1982c4;
+    background-color: rgba(25, 130, 196,0.8);
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     box-shadow: 0 0 5px #264653;
     font-size: 1.2rem;
     color: #fff;
@@ -117,19 +117,24 @@ input[type="checkbox"]{
     padding: 13px;
     background-color: #fff;
     border-radius: 50%;
-    box-shadow: 0 0 5px gray;
+    box-shadow: 0 0 1px rgb(255, 255, 255);
 }
 
 input[type="checkbox"]:checked + label::before{
     content: "✔️";
     position: absolute;
-    left: 2px;
+    left: 2.5px;
     top: 3px;
     z-index: 2;
+}
+input[type="checkbox"]:checked{
+    background-color: #61a2ca;
+    box-shadow: 0 0 5px #264653;
 }
 input[type="checkbox"] ~ label{
     font-size: 1.1rem;
     font-weight: 400;
+    margin-top: 3px;
 }
 .container{
     display: flex;
