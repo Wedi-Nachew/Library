@@ -33,6 +33,7 @@ Book.prototype.info = function() {
         return `The ${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`
     }
 
+
 function checkBoxValue(){
     (checkBox.checked) ? readStatus = "Have Read" : readStatus = "To Read";
 }
@@ -71,9 +72,11 @@ addBtn.addEventListener("click", (event)=>{
 
 function renderBooks(){
     for (const book of myLibrary){
-        if(myLibrary.indexOf(book)=== myLibrary.length -1){
-            let tr = document.createElement("tr")
-            let datas = Object.values(book);
+        book["remove"] = "Remove"
+        console.log(Object.keys(book))
+        if(myLibrary.indexOf(book) === myLibrary.length - 1){
+            const tr = document.createElement("tr")
+            const datas = Object.values(book);
             for(data of datas){
                 const td = document.createElement("td")
                 if(datas.indexOf(data) == 3 && data=="To Read"){
@@ -86,7 +89,12 @@ function renderBooks(){
                     btn.className = "readed"
                     btn.textContent = data
                     td.appendChild(btn)
-                }else {
+                }else if(datas.indexOf(data) == 4){
+                    const btn = document.createElement("button")
+                    btn.textContent = data
+                    td.appendChild(btn)
+                }
+                else {
                     td.textContent = data
                 }
                 tr.appendChild(td)
@@ -120,4 +128,5 @@ document.addEventListener("DOMContentLoaded", ()=>{
     bookInfo["read"] = readStatus;
 })
 
+console.log(myLibrary)
 
