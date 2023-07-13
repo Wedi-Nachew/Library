@@ -158,7 +158,7 @@ button:hover{
 }
 
 table{
-    width: 80%;
+    width: 75%;
     margin: 30px auto;
 }
 thead{
@@ -170,14 +170,26 @@ tr{
     height: 40px;
 }
 td{
-    text-align: center
+    text-align: center;
+    padding: 0 5px;
 }
+td:nth-child(-n + 2){
+    text-align: left;
+}
+td:nth-child(3){
+    text-align: right;
+}
+tr:nth-child(2n){
+    background-color: #e5e5e5;
+}
+
+
 table button{
     width: 120px;
     height: 35px;
     border: none;
     border-radius: 10px;
-    box-shadow: 0 0 4px #9f9f9f;
+    box-shadow: 0 0 4px #cbcbcb;
     color: white;
 }
 
@@ -198,6 +210,10 @@ table td:last-child button{
 }
 table td:last-child button:hover{
     background-color: rgb(251, 8, 8);
+}
+caption{
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 
