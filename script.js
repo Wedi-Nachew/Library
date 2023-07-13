@@ -11,12 +11,8 @@ const bookBtn = document.querySelectorAll("td button")
 const tableRow = document.querySelectorAll("tr")
 
 
-
-
-
-
 let readStatus = "To Read"
-const myLibrary=[
+let myLibrary=[
                     {title: "Sapiens", author: "prof. Yuval Harari", pages: 123, read: "Have Read"},
                     {title: "Eloquent Javascript", author: "Majin Haverbeke", pages: 448, read: "To Read"}
                 ]
@@ -111,10 +107,18 @@ display.addEventListener("click", (event)=>{
     if(event.target.nodeName === "BUTTON" && event.target.textContent === "To Read"){
         event.target.className = "readed"
         event.target.textContent = "Have Read"
-    } else if(event.target.nodeName === "BUTTON" && event.target.textContent === "Have Read"){
+    }else if(event.target.nodeName === "BUTTON" && event.target.textContent === "Have Read"){
         event.target.className = "not-readed"
         event.target.textContent = "To Read"
-    } 
+    }else if(event.target.nodeName === "BUTTON" && event.target.textContent === "Remove"){
+        let toBeRemoved = event.target.parentNode.parentNode;
+        display.removeChild(toBeRemoved);
+        let removedBook = event.target.parentNode.parentNode.firstChild.textContent;
+        for(const book of myLibrary){
+            console.log(book["title"]===removedBook)
+            console.log(myLi)
+        }
+    }
 })
 
 document.addEventListener("click", (event)=>{
