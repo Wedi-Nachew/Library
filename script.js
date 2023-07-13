@@ -8,6 +8,7 @@ const checkBox = document.querySelector("input[type=checkbox]")
 const container = document.querySelector(".container")
 const display = document.querySelector("tbody")
 const bookBtn = document.querySelectorAll("td button")
+const tableRow = document.querySelectorAll("tr")
 
 
 
@@ -72,8 +73,8 @@ addBtn.addEventListener("click", (event)=>{
 
 function renderBooks(){
     for (const book of myLibrary){
-        book["remove"] = "Remove"
-        console.log(Object.keys(book))
+        book["remove"] = `Remove`
+        book["dataset"] = myLibrary.indexOf(book)
         if(myLibrary.indexOf(book) === myLibrary.length - 1){
             const tr = document.createElement("tr")
             const datas = Object.values(book);
@@ -93,6 +94,8 @@ function renderBooks(){
                     const btn = document.createElement("button")
                     btn.textContent = data
                     td.appendChild(btn)
+                }else if(datas.indexOf(data)=== 5){
+                    continue;
                 }
                 else {
                     td.textContent = data
@@ -111,7 +114,7 @@ display.addEventListener("click", (event)=>{
     } else if(event.target.nodeName === "BUTTON" && event.target.textContent === "Have Read"){
         event.target.className = "not-readed"
         event.target.textContent = "To Read"
-    }
+    } 
 })
 
 document.addEventListener("click", (event)=>{
