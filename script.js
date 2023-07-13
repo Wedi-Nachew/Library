@@ -116,7 +116,7 @@ display.addEventListener("click", (event)=>{
         let removedBook = event.target.parentNode.parentNode.firstChild.textContent;
         for(const book of myLibrary){
             if(book["title"]===removedBook){
-                myLibrary.splice(book["dataset"],1)
+                myLibrary.splice(book["dataset"], 1)
             }
         }
         console.log(myLibrary)
