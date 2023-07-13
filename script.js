@@ -115,9 +115,11 @@ display.addEventListener("click", (event)=>{
         display.removeChild(toBeRemoved);
         let removedBook = event.target.parentNode.parentNode.firstChild.textContent;
         for(const book of myLibrary){
-            console.log(book["title"]===removedBook)
-            console.log(myLi)
+            if(book["title"]===removedBook){
+                myLibrary.splice(book["dataset"],1)
+            }
         }
+        console.log(myLibrary)
     }
 })
 
