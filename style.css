@@ -155,7 +155,7 @@ button:hover{
 }
 
 table{
-    width: 75%;
+    width: 65%;
     margin: 30px auto;
 }
 thead{
@@ -182,7 +182,7 @@ tr:nth-child(2n){
 
 
 table button{
-    width: 120px;
+    width: 140px;
     height: 35px;
     border: none;
     border-radius: 10px;
@@ -212,7 +212,9 @@ caption{
     font-size: 1.5rem;
     font-weight: 600;
 }
-
+th:nth-last-child(-n + 2){
+    width: 170px;
+}
 
 
 
