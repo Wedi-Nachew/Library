@@ -18,7 +18,7 @@ body{
 .header button{
     width: 150px;
     height: 50px;
-    background-color: #8ac926;
+    background-color: rgb(42, 192, 94);
     border: none;
     border-radius: 10px;
     box-shadow: 0 0 5px #3e3f3c;
@@ -26,6 +26,9 @@ body{
     padding: 10px 20px;
     color: #fff;
     font-weight: 600;
+}
+.header button:hover{
+    background-color: rgb(9, 220, 83);
 }
 
 
@@ -44,7 +47,7 @@ body{
     width: 100%;
     background-color: rgb(0, 0, 0, 0.8);
     z-index: 5; 
-    /*box-shadow: 0 0 10px rgba(0, 0, 0, .5); */
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
 }
 .hide{
     display: none;
@@ -75,6 +78,7 @@ form{
     margin-top: 5%;
     z-index: 9999;
     border: 2px solid rgba(255,255,255, .4);
+    box-shadow: 0 0 5px #9e9b9b;
 }
 form > p{
     text-align: center;
@@ -83,11 +87,12 @@ form > p{
 }
 
 input:not(input[type="checkbox"]){
-    height: 30px;
-    margin-bottom: 20px;
+    height: 45px;
+    margin-bottom: 25px;
     border-radius: 10px;
     outline: none;
     padding: 3px 8px;
+    caret-color: rgb(41, 90, 163);
 }
 label{
     font-size: 1.2rem;
@@ -97,7 +102,7 @@ label{
 }
 
 form button{
-    height: 40px;
+    height: 50px;
     background-color: rgba(25, 130, 196,0.8);
     border: none;
     border-radius: 15px;
@@ -105,6 +110,7 @@ form button{
     font-size: 1.2rem;
     color: #fff;
     font-weight: 600;
+    margin-top: 5px;
 }
 form div{
     position: relative;
@@ -141,6 +147,10 @@ input::placeholder{
     font-size: 0.9rem;
     color: rgb(45, 88, 151)
 }
+button:hover{
+    cursor: pointer;
+}
+
 .container{
     display: flex;
     padding: 30px;
@@ -172,13 +182,22 @@ table button{
 }
 
 .not-readed{
-    background-color: rgb(171, 12, 12);
+    background-color: rgb(192, 171, 33);
+}
+.not-readed:hover{
+    background-color: rgb(221, 192, 3);
 }
 .readed{
     background-color: rgb(29, 184, 83);
 }
+.readed:hover{
+    background-color: rgb(9, 224, 84);
+}
 table td:last-child button{
-    background-color: rgb(255,0,0);
+    background-color: rgb(245, 40, 40);
+}
+table td:last-child button:hover{
+    background-color: rgb(251, 8, 8);
 }
 
 
