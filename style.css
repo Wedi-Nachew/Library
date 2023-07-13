@@ -74,7 +74,7 @@ form{
     color: white;
     margin-top: 5%;
     z-index: 9999;
-    border: 2px solid #fff;
+    border: 2px solid rgba(255,255,255, .4);
 }
 form > p{
     text-align: center;
@@ -112,9 +112,9 @@ form div{
     column-gap: 8px;
 }
 input[type="checkbox"]{
-    margin-bottom: 10px;
+    margin-bottom: 9px;
     appearance: none;
-    padding: 13px;
+    padding: 12px;
     background-color: #fff;
     border-radius: 50%;
     box-shadow: 0 0 1px rgb(255, 255, 255);
@@ -123,8 +123,8 @@ input[type="checkbox"]{
 input[type="checkbox"]:checked + label::before{
     content: "✔️";
     position: absolute;
-    left: 2.5px;
-    top: 3px;
+    left: 2.3px;
+    top: 2px;
     z-index: 2;
 }
 input[type="checkbox"]:checked{
@@ -134,7 +134,12 @@ input[type="checkbox"]:checked{
 input[type="checkbox"] ~ label{
     font-size: 1.1rem;
     font-weight: 400;
-    margin-top: 3px;
+    padding: 2px;
+    margin-left: 0;
+}
+input::placeholder{
+    font-size: 0.9rem;
+    color: rgb(45, 88, 151)
 }
 .container{
     display: flex;
