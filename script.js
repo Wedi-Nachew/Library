@@ -7,8 +7,7 @@ const input = document.querySelectorAll("input")
 const checkBox = document.querySelector("input[type=checkbox]")
 const container = document.querySelector(".container")
 const display = document.querySelector("tbody")
-const x = document.get
-
+const bookBtn = document.querySelectorAll("td button")
 
 
 
@@ -28,10 +27,14 @@ function Book(title, author, pages, read){
     this.author = author
     this.pages = pages
     this.read = read
-    this.info = function() {
+    // this.info = function() {
+    //     return `The ${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`
+    // }
+}
+
+Book.prototype.info = function() {
         return `The ${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`
     }
-}
 
 function checkBoxValue(){
     (checkBox.checked) ? readStatus = "Have Read" : readStatus = "To Read";
@@ -64,7 +67,6 @@ addBtn.addEventListener("click", (event)=>{
         addBookToLibrary();
         formContainer.className = "hide";
         renderBooks()
-        // console.table(bookInfo)
     } else{
         return false
     }
@@ -100,9 +102,14 @@ display.addEventListener("click", (event)=>{
     }
 })
 
-function setButtonClass(){
-    
-    console.log("Hang in there")
+function setBookStatus(){
+    if(readStatus==="To Read"){
+        console.log("red")
+        //bookBtn.className="not-readed"
+    } else if(readStatus==="Have Read"){
+        //bookBtn.className="readed"
+        console.log("green")
+    }
 }
 // setButtonClass()
 // Pop up if "Add Book" is clicked
@@ -119,7 +126,7 @@ document.addEventListener("click", (event)=>{
 document.addEventListener("DOMContentLoaded", ()=>{
     formContainer.className = "hide";
     bookInfo["read"] = readStatus;
-    setButtonClass()
+    setBookStatus()
 })
 
 
