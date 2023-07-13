@@ -56,9 +56,6 @@ input.forEach(input=>input.addEventListener("input", (event)=>{
 
 function addBookToLibrary(){
     let newBook = new Book(bookInfo.title, bookInfo.author, bookInfo.pages, bookInfo.read)
-    if(bookInfo.textContent === "To Read"){
-
-    }
     myLibrary.push(newBook)
 }
 addBtn.addEventListener("click", (event)=>{
@@ -67,7 +64,6 @@ addBtn.addEventListener("click", (event)=>{
         addBookToLibrary();
         formContainer.className = "hide";
         renderBooks()
-        setBookStatus()
     } else{
         return false
     }
@@ -75,27 +71,28 @@ addBtn.addEventListener("click", (event)=>{
 
 function renderBooks(){
     for (const book of myLibrary){
-        let tr = document.createElement("tr")
-        let datas = Object.values(book);
-        for(data of datas){
-            const td = document.createElement("td")
-            if(datas.indexOf(data) == 3 && data=="To Read"){
-                const btn = document.createElement("button")
-                btn.className = "not-readed"
-                btn.textContent = data
-                td.appendChild(btn)
-            } else if(datas.indexOf(data) == 3 && data=="Have Read"){
-                const btn = document.createElement("button")
-                btn.className = "readed"
-                btn.textContent = data
-                td.appendChild(btn)
-            } 
-            else {
-                td.textContent = data
+        if(myLibrary.indexOf(book)=== myLibrary.length -1){
+            let tr = document.createElement("tr")
+            let datas = Object.values(book);
+            for(data of datas){
+                const td = document.createElement("td")
+                if(datas.indexOf(data) == 3 && data=="To Read"){
+                    const btn = document.createElement("button")
+                    btn.className = "not-readed"
+                    btn.textContent = data
+                    td.appendChild(btn)
+                }else if(datas.indexOf(data) == 3 && data=="Have Read"){
+                    const btn = document.createElement("button")
+                    btn.className = "readed"
+                    btn.textContent = data
+                    td.appendChild(btn)
+                }else {
+                    td.textContent = data
+                }
+                tr.appendChild(td)
             }
-            tr.appendChild(td)
+            display.appendChild(tr)
         }
-        display.appendChild(tr)
    }
 }
 renderBooks()
