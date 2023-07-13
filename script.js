@@ -7,6 +7,8 @@ const input = document.querySelectorAll("input")
 const checkBox = document.querySelector("input[type=checkbox]")
 const container = document.querySelector(".container")
 const display = document.querySelector("tbody")
+const x = document.get
+
 
 
 
@@ -77,7 +79,6 @@ function renderBooks(){
             if(datas.indexOf(data) == 3){
                 const btn = document.createElement("button")
                 btn.textContent = data
-                // btn.classList.add("book-status")
                 td.appendChild(btn)
             } else {
                 td.textContent = data
@@ -88,19 +89,22 @@ function renderBooks(){
    }
 }
 renderBooks()
-document.addEventListener("focus", (event)=>{
-    const bookStatus = document.querySelectorAll("td button")
-    bookStatus.forEach(btn => btn.addEventListener("click", (event)=>{
-        if(event.target.textContent==="To Read"){
-            btn.style.cssText = "background-color: green;"
-            btn.textContent = "Have Read"
-        }else if(event.target.textContent==="Have Read"){
-            btn.style.cssText = "background-color:  rgb(184, 55, 29);"
-            btn.textContent = "To Read"
-        }
-    }))
-    
+
+display.addEventListener("click", (event)=>{
+    if(event.target.nodeName === "BUTTON" && event.target.textContent === "To Read"){
+        event.target.className = "readed"
+        event.target.textContent = "Have Read"
+    } else if(event.target.nodeName === "BUTTON" && event.target.textContent === "Have Read"){
+        event.target.className = "not-readed"
+        event.target.textContent = "To Read"
+    }
 })
+
+function setButtonClass(){
+    
+    console.log("Hang in there")
+}
+// setButtonClass()
 // Pop up if "Add Book" is clicked
 // Disappear if clicked outside of the form or the Add button
 document.addEventListener("click", (event)=>{
@@ -113,8 +117,9 @@ document.addEventListener("click", (event)=>{
 
 // Set the default settings of the Library
 document.addEventListener("DOMContentLoaded", ()=>{
-    formContainer.className = "hide"
+    formContainer.className = "hide";
     bookInfo["read"] = readStatus;
+    setButtonClass()
 })
 
 
