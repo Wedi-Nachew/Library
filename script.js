@@ -123,16 +123,14 @@ document.addEventListener("click", (event)=>{
         formContainer.className = "hide"
     }else if(event.target === addBook ){
         formContainer.className= "show"
-        // input.forEach(input=> input.value = "")
+        checkBox.checked = false;
+        bookInfo["read"] = readStatus;
     } 
 })
 
 
 document.addEventListener("DOMContentLoaded", ()=>{
     formContainer.className = "hide";
-    bookInfo["read"] = readStatus;
     input.forEach(input=> input.value= "")
 })
-
-console.log(myLibrary)
 
