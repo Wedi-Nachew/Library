@@ -9,8 +9,6 @@ const container = document.querySelector(".container")
 const display = document.querySelector("tbody")
 const bookBtn = document.querySelectorAll("td button")
 const tableRow = document.querySelectorAll("tr")
-
-
 let readStatus = "To Read"
 let myLibrary=[
                     {title: "Sapiens", author: "prof. Yuval Harari", pages: 123, read: "Have Read"},
@@ -25,12 +23,9 @@ function Book(title, author, pages, read){
     this.pages = pages
     this.read = read
 }
-
 Book.prototype.info = function() {
         return `The ${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`
     }
-
-
 function checkBoxValue(){
     (checkBox.checked) ? readStatus = "Have Read" : readStatus = "To Read";
 }
@@ -59,10 +54,14 @@ function addBookToLibrary(){
 addBtn.addEventListener("click", (event)=>{
     if(Boolean(bookInfo.title) && Boolean(bookInfo.author) && Boolean(bookInfo.pages)){
         event.preventDefault()
+        input.forEach(input=> input.value = "")
         addBookToLibrary();
         formContainer.className = "hide";
         renderBooks()
-        input.forEach(input=> input.value= "")
+        bookInfo.title = ""
+        bookInfo.author = ""
+        bookInfo.pages= ""
+
     } else{
         return false
     }
@@ -128,6 +127,7 @@ document.addEventListener("click", (event)=>{
         formContainer.className = "hide"
     }else if(event.target === addBook ){
         formContainer.className= "show"
+        // input.forEach(input=> input.value = "")
     } 
 })
 
