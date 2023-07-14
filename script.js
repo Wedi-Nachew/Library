@@ -62,6 +62,7 @@ addBtn.addEventListener("click", (event)=>{
         addBookToLibrary();
         formContainer.className = "hide";
         renderBooks()
+        input.forEach(input=> input.value= "")
     } else{
         return false
     }
@@ -134,6 +135,7 @@ document.addEventListener("click", (event)=>{
 document.addEventListener("DOMContentLoaded", ()=>{
     formContainer.className = "hide";
     bookInfo["read"] = readStatus;
+    input.forEach(input=> input.value= "")
 })
 
 console.log(myLibrary)
