@@ -106,7 +106,7 @@ label{
 }
 
 form button{
-    height: 50px;
+    height: 60px;
     background-color: rgba(25, 130, 196,0.8);
     border: none;
     border-radius: 15px;
@@ -146,12 +146,6 @@ input::placeholder{
 }
 button:hover{
     cursor: pointer;
-}
-
-.container{
-    display: flex;
-    padding: 30px;
-    gap: 20px;
 }
 
 table{

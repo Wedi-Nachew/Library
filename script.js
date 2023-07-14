@@ -14,9 +14,7 @@ let myLibrary=[
                     {title: "Sapiens", author: "prof. Yuval Harari", pages: 123, read: "Have Read"},
                     {title: "Eloquent Javascript", author: "Majin Haverbeke", pages: 448, read: "To Read"}
                 ]
-const bookInfo ={}
-
-
+let bookInfo ={}
 function Book(title, author, pages, read){
     this.title = title
     this.author = author
@@ -58,9 +56,7 @@ addBtn.addEventListener("click", (event)=>{
         addBookToLibrary();
         formContainer.className = "hide";
         renderBooks()
-        bookInfo.title = ""
-        bookInfo.author = ""
-        bookInfo.pages= ""
+        bookInfo = {}
 
     } else{
         return false
