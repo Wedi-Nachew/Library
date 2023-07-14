@@ -1,4 +1,3 @@
-// Get reference to the html elements
 const addBook = document.querySelector(".header > button")
 const addBtn = document.querySelector("form button")
 const formContainer = document.querySelector("#form")
@@ -10,10 +9,7 @@ const display = document.querySelector("tbody")
 const bookBtn = document.querySelectorAll("td button")
 const tableRow = document.querySelectorAll("tr")
 let readStatus = "To Read"
-let myLibrary=[
-                    {title: "Sapiens", author: "prof. Yuval Harari", pages: 123, read: "Have Read"},
-                    {title: "Eloquent Javascript", author: "Majin Haverbeke", pages: 448, read: "To Read"}
-                ]
+let myLibrary=[]
 let bookInfo ={}
 function Book(title, author, pages, read){
     this.title = title
@@ -27,7 +23,6 @@ Book.prototype.info = function() {
 function checkBoxValue(){
     (checkBox.checked) ? readStatus = "Have Read" : readStatus = "To Read";
 }
-
 input.forEach(input=>input.addEventListener("input", (event)=>{
    switch(event.target.name){
     case "title":
@@ -44,7 +39,6 @@ input.forEach(input=>input.addEventListener("input", (event)=>{
         bookInfo["read"] = readStatus;
    }
 }))
-
 function addBookToLibrary(){
     let newBook = new Book(bookInfo.title, bookInfo.author, bookInfo.pages, bookInfo.read)
     myLibrary.push(newBook)
@@ -62,7 +56,6 @@ addBtn.addEventListener("click", (event)=>{
         return false
     }
 })
-
 function renderBooks(){
     for (const book of myLibrary){
         book["remove"] = `Remove`
@@ -117,7 +110,6 @@ display.addEventListener("click", (event)=>{
         }
     }
 })
-
 document.addEventListener("click", (event)=>{
     if(!form.contains(event.target) && event.target !== addBook){
         formContainer.className = "hide"
@@ -127,10 +119,7 @@ document.addEventListener("click", (event)=>{
         bookInfo["read"] = readStatus;
     } 
 })
-
-
 document.addEventListener("DOMContentLoaded", ()=>{
     formContainer.className = "hide";
-    input.forEach(input=> input.value= "")
 })
 
