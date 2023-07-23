@@ -11,15 +11,20 @@ const tableRow = document.querySelectorAll("tr")
 let readStatus = "To Read"
 let myLibrary=[]
 let bookInfo ={}
-function Book(title, author, pages, read){
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
-}
-Book.prototype.info = function() {
+
+class Book{
+    constructor(title, author, pages, read){
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.read = read
+    }
+
+    info(){
         return `The ${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`
     }
+}
+
 function checkBoxValue(){
     (checkBox.checked) ? readStatus = "Have Read" : readStatus = "To Read";
 }
